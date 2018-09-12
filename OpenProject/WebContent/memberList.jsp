@@ -59,7 +59,7 @@
                 <td><%= member.getPassword()%></td>
                 <td><%= member.getUserName()%></td>
                 <td><%= member.getUserPhoto()%></td>
-                <td>수정 삭제</td>
+                <td><a href="memberEditForm.jsp?idx=<%= i%>">수정</a> <a href="memberDelete.jsp?idx=<%= i%>">삭제</a></td>
             </tr>
         		<%
         	}
