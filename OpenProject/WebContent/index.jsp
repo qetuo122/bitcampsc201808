@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
+<%--
 	List<MemberInfo> members = null;
 
 	if(application.getAttribute("members") != null){
@@ -15,7 +15,7 @@
 	for(int i=0; i < members.size() ; i++){
 		System.out.println(members.get(i));
 	}
-%>
+--%>
 <!DOCTYPE html>
 <html>
 <head>

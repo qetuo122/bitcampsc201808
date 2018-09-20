@@ -2,10 +2,19 @@ package member.model;
 
 public class MemberInfo {
 
+	private int idx;
 	private String userId;
 	private String password;
 	private String userName;
 	private String userPhoto;
+
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
 
 	public String getUserId() {
 		return userId;
@@ -37,6 +46,14 @@ public class MemberInfo {
 
 	public void setUserPhoto(String userPhoto) {
 		this.userPhoto = userPhoto;
+	}
+
+	public boolean checkPassword(String pw) {
+		return password.equals(pw);
+	}
+
+	public LoginInfo toLoginInfo() {
+		return new LoginInfo(userId, userName, userPhoto);
 	}
 
 	@Override

@@ -21,7 +21,7 @@
 <h2>로그인</h2>
     
     <hr>
-    <form action="login.jsp" method="post">
+    <form action="login2.jsp" method="post">
         <table>
             <tr>
                 <td>아이디</td>

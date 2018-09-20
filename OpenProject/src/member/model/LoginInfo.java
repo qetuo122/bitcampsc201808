@@ -6,6 +6,23 @@ public class LoginInfo {
 	private String userName;
 	private String userPhoto;
 
+	/**
+	 * @param userId
+	 * @param userName
+	 * @param userPhoto
+	 */
+	public LoginInfo(String userId, String userName, String userPhoto) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userPhoto = userPhoto;
+	}
+
+	public LoginInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getUserId() {
 		return userId;
 	}
@@ -34,7 +51,5 @@ public class LoginInfo {
 	public String toString() {
 		return "LoginInfo [userId=" + userId + ", userName=" + userName + ", userPhoto=" + userPhoto + "]";
 	}
-
-	
 
 }

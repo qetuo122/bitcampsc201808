@@ -1,4 +1,5 @@
 <%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.ArrayList"%>
@@ -6,46 +7,28 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%--
-	List<MemberInfo> members = null;
-
-	if(application.getAttribute("members") != null){
-		members = (List<MemberInfo>)application.getAttribute("members");			
-	} else {
-		members = new ArrayList<MemberInfo>();
-	}
---%>
 <%
 	request.setCharacterEncoding("utf-8");
 
+	int idx = Integer.parseInt(request.getParameter("idx"));
 	String userId = request.getParameter("userId");
 	String password = request.getParameter("password");
 	String userName = request.getParameter("userName");
-
-	MemberInfo memberInfo = new MemberInfo();
-	memberInfo.setUserId(userId);
-	memberInfo.setUserName(userName);
-	memberInfo.setPassword(password);
-
-	//members.add(memberInfo);
-	//application.setAttribute("members", members);
 
 	// 데이터 베이스 입력처리 : 2018.09.20
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 
-	String sql = "insert into member (idx, userid, password, username, userphoto ) values(seq_member.nextval, ?, ?, ?, ?)";
+	String sql = "update member set password=?, username=? where idx=?";
 
 	try {
 		conn = DriverManager.getConnection("jdbc:apache:commons:dbcp:open");
 
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, memberInfo.getUserId());
-		pstmt.setString(2, memberInfo.getPassword());
-		pstmt.setString(3, memberInfo.getUserName());
-		pstmt.setString(4, memberInfo.getUserPhoto());
-		int resultCnt = pstmt.executeUpdate();
-		System.out.println(resultCnt);
+		pstmt.setString(1, password);
+		pstmt.setString(2, userName);
+		pstmt.setInt(3, idx);
+		pstmt.executeUpdate();
 	} catch (Exception e) {
 
 	} finally {
@@ -72,7 +55,7 @@ h2, td {
 
 	<div id="contents">
 
-		<h2>회원가입 정보</h2>
+		<h2>회원가입 수정</h2>
 
 		<hr>
 		<table>
