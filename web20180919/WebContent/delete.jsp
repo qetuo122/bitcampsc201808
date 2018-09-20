@@ -7,18 +7,21 @@
 	String empno = request.getParameter("empno");
 
 	//1. 데이터베이스 드라이버 로드
-	Class.forName("oracle.jdbc.driver.OracleDriver");
+	//Class.forName("oracle.jdbc.driver.OracleDriver");
 
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	int resultCnt = 0;
 
-	String url = "jdbc:oracle:thin:@localhost:1522:orcl";
+	/* String url = "jdbc:oracle:thin:@localhost:1522:orcl";
 	String user = "scott";
-	String pw = "tiger";
+	String pw = "tiger"; */
+	
+	String jdbcUrl = "jdbc:apache:commons:dbcp:open";
 
 	try {
-		conn = DriverManager.getConnection(url, user, pw);
+		
+		conn = DriverManager.getConnection(jdbcUrl);
 
 		String sql = "delete from emp where empno=?";
 
