@@ -7,50 +7,11 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%--
-	List<MemberInfo> members = null;
-
-	if(application.getAttribute("members") != null){
-		members = (List<MemberInfo>)application.getAttribute("members");			
-	} else {
-		members = new ArrayList<MemberInfo>();
-	}
-	
-
---%>
 <%
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
 
-	String sql = "select * from member";
+	List<MemberInfo> members = (List<MemberInfo>) request.getAttribute("members");
 
-	List<MemberInfo> members = new ArrayList<MemberInfo>();
-
-	try {
-		conn = DriverManager.getConnection("jdbc:apache:commons:dbcp:open");
-
-		stmt = conn.createStatement();
-
-		rs = stmt.executeQuery(sql);
-
-		while (rs.next()) {
-			MemberInfo memberInfo = new MemberInfo();
-			memberInfo.setIdx(rs.getInt("idx"));
-			memberInfo.setUserId(rs.getString("userid"));
-			memberInfo.setPassword(rs.getString("password"));
-			memberInfo.setUserName(rs.getString("username"));
-			memberInfo.setUserPhoto(rs.getString("userPhoto"));
-			
-			members.add(memberInfo);
-		}
-	} catch (Exception e) {
-
-	} finally {
-		rs.close();
-		stmt.close();
-		conn.close();
-	}
+	
 %>
 <!DOCTYPE html>
 <html>
