@@ -16,7 +16,7 @@
 	}
 --%>
 <%
-	request.setCharacterEncoding("utf-8");
+	//request.setCharacterEncoding("utf-8");
 
 	String userId = request.getParameter("userId");
 	String password = request.getParameter("password");

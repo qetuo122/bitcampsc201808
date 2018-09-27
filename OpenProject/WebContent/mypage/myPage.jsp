@@ -2,28 +2,28 @@
 	pageEncoding="UTF-8"%>
 <jsp:useBean id="loginInfo" class="member.model.LoginInfo" scope="session" />	
 	
-<%
+<%--
 	//String id = (String)request.getSession(false).getAttribute("userId");
 	//String name = (String)request.getSession(false).getAttribute("userName");
 
 	if (loginInfo == null){
-		%>
+		--%>
 		
-	<script>
+	<!-- <script>
 		alert('로그인 후 사용가능한 서비스입니다.');
 		location.href = 'loginForm.jsp';
-	</script>	
+	</script> -->	
 		
 		
-		<%
+		<%--
 	} else {
-%>
+--%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="../css/default.css">
 <style>
 h2, td {
 	padding: 10px;
@@ -41,7 +41,7 @@ h2, td {
 </head>
 <body>
 
-	<%@ include file="common/header.jsp"%>
+	<%@ include file="../common/header.jsp"%>
 
 
 	<div id="contents">
@@ -78,4 +78,4 @@ h2, td {
 
 </body>
 </html>
-<%}%>
+<%--}--%>
